@@ -13,6 +13,13 @@ pluginManagement {
 		gradlePluginPortal()
 		mavenCentral()
 	}
+
+	val kotlin: String by settings
+	val loom: String by settings
+	plugins {
+		kotlin("jvm") version kotlin apply false
+		id("org.quiltmc.loom") version loom apply false
+	}
 }
 
-rootProject.name = "quilt-kotlin-template-mod"
+rootProject.name = "YYII"
