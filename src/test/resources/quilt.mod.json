@@ -1,0 +1,29 @@
+{
+	"schema_version": 1,
+	"quilt_loader": {
+		"group": "quest.laxla",
+		"id": "${namespace}_tests",
+		"version": "${version}",
+		"metadata": {
+			"name": "YYII Tests",
+			"description": "NOT the test mod - shouldn't exist. Please report a github issue.",
+			"contact": {
+				"issues": "https://github.com/LaylaMeower/YYII/issues"
+			}
+		},
+		"intermediate_mappings": "net.fabricmc:intermediary",
+		"entrypoints": {},
+		"depends": [
+			{
+				"id": "${namespace}",
+				"versions": "=${version}"
+			}
+		]
+	},
+
+	"modmenu": {
+		"parent": "${namespace}",
+		"update_checker": false,
+		"badges": [ "deprecated" ]
+	}
+}

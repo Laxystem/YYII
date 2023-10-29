@@ -1,12 +1,14 @@
 package quest.laxla.yyii
 
 import org.junit.jupiter.api.Nested
+import org.quiltmc.loader.api.ModInternal
 import kotlin.test.*
 
+@ModInternal
 internal class KansasServerTest {
     companion object {
-        const val OVERWORLD_BOTTOM_Y = -64
-        const val OVERWORLD_HEIGHT = 384
+        private const val OVERWORLD_BOTTOM_Y = -64
+        private const val OVERWORLD_HEIGHT = 384
     }
 
     @Nested
