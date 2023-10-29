@@ -10,6 +10,7 @@ import org.quiltmc.loader.api.ModInternal
 import xyz.nucleoid.fantasy.Fantasy
 import kotlin.math.absoluteValue
 import kotlin.math.ceil
+import kotlin.math.floor
 
 /**
  * YYII's custom minecraft server event handler!
@@ -39,15 +40,34 @@ internal class KansasServer private constructor(val server: MinecraftServer) {
             val topY = bottomY + height - 1
 
             return when {
-                y < bottomY -> bottomY - y / FLOOR_HEIGHT
+                y < bottomY -> floor((y - bottomY).toDouble() / FLOOR_HEIGHT).toInt()
                 y > topY -> ceil((y - topY).toDouble() / FLOOR_HEIGHT).toInt()
 
-                else -> return 0
+                else -> 0
             }
         }
 
         @Suppress("NOTHING_TO_INLINE")
-        internal inline fun getFloorIndexAtOptimized(y: Int, bottomY: Int, height: Int): Int = Int.MAX_VALUE
+        internal inline fun getFloorIndexAtOptimized(y: Int, bottomY: Int, height: Int): Int {
+            val topY = bottomY + height - 1
+
+            return when {
+                y < bottomY -> {
+                    val standardY = bottomY - OPTIMIZED_FLOOR_HEIGHT
+
+                    if (y < standardY) floor((y - standardY).toDouble() / FLOOR_HEIGHT).toInt() - 1
+                    else -1
+                }
+                y > topY -> {
+                    val standardY = topY + OPTIMIZED_FLOOR_HEIGHT
+
+                    if (y > standardY) ceil((y - standardY).toDouble() / FLOOR_HEIGHT).toInt() + 1
+                    else 1
+                }
+
+                else -> 0
+            }
+        }
     }
 
     fun onWorldLoad() {

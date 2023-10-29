@@ -14,9 +14,106 @@ internal class KansasServerTest {
     @Nested
     inner class Overworld {
         @Test
-        fun `y=449, optimization on`() {
+        fun `y=513, optimization on`() {
             assertEquals(
                 expected = 3,
+                actual = KansasServer.getFloorIndexAtOptimized(
+                    y = 513,
+                    bottomY = OVERWORLD_BOTTOM_Y,
+                    height = OVERWORLD_HEIGHT
+                )
+            )
+        }
+
+        @Test
+        fun `y=513, optimization off`() {
+            assertEquals(
+                expected = 2,
+                actual = KansasServer.getFloorIndexAt(
+                    y = 513,
+                    bottomY = OVERWORLD_BOTTOM_Y,
+                    height = OVERWORLD_HEIGHT
+                )
+            )
+        }
+
+        @Test
+        fun `y=512, optimization on`() {
+            assertEquals(
+                expected = 3,
+                actual = KansasServer.getFloorIndexAtOptimized(
+                    y = 512,
+                    bottomY = OVERWORLD_BOTTOM_Y,
+                    height = OVERWORLD_HEIGHT
+                )
+            )
+        }
+
+        @Test
+        fun `y=512, optimization off`() {
+            assertEquals(
+                expected = 2,
+                actual = KansasServer.getFloorIndexAt(
+                    y = 512,
+                    bottomY = OVERWORLD_BOTTOM_Y,
+                    height = OVERWORLD_HEIGHT
+                )
+            )
+        }
+
+        @Test
+        fun `y=511, optimization on`() {
+            assertEquals(
+                expected = 2,
+                actual = KansasServer.getFloorIndexAtOptimized(
+                    y = 511,
+                    bottomY = OVERWORLD_BOTTOM_Y,
+                    height = OVERWORLD_HEIGHT
+                )
+            )
+        }
+
+        @Test
+        fun `y=511, optimization off`() {
+            assertEquals(
+                expected = 2,
+                actual = KansasServer.getFloorIndexAt(
+                    y = 511,
+                    bottomY = OVERWORLD_BOTTOM_Y,
+                    height = OVERWORLD_HEIGHT
+                )
+            )
+        }
+
+        @Test
+        fun `y=510, optimization on`() {
+            assertEquals(
+                expected = 2,
+                actual = KansasServer.getFloorIndexAtOptimized(
+                    y = 510,
+                    bottomY = OVERWORLD_BOTTOM_Y,
+                    height = OVERWORLD_HEIGHT
+                )
+            )
+        }
+
+        @Test
+        fun `y=510, optimization off`() {
+            assertEquals(
+                expected = 2,
+                actual = KansasServer.getFloorIndexAt(
+                    y = 510,
+                    bottomY = OVERWORLD_BOTTOM_Y,
+                    height = OVERWORLD_HEIGHT
+                )
+            )
+        }
+
+
+        @Test
+        fun `y=449, optimization on`() {
+            assertEquals(
+                expected = 2,
                 actual = KansasServer.getFloorIndexAtOptimized(
                     y = 449,
                     bottomY = OVERWORLD_BOTTOM_Y,
@@ -40,7 +137,7 @@ internal class KansasServerTest {
         @Test
         fun `y=448, optimization on`() {
             assertEquals(
-                expected = 3,
+                expected = 2,
                 actual = KansasServer.getFloorIndexAtOptimized(
                     y = 448,
                     bottomY = OVERWORLD_BOTTOM_Y,
@@ -448,7 +545,7 @@ internal class KansasServerTest {
         @Test
         fun `y=-127, optimization on`() {
             assertEquals(
-                expected = -127,
+                expected = -1,
                 actual = KansasServer.getFloorIndexAtOptimized(
                     y = -127,
                     bottomY = OVERWORLD_BOTTOM_Y,
